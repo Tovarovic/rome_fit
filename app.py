@@ -137,8 +137,10 @@ def editar_usuario(dni):
 
         # Guarda los cambios en la base de datos
         db.session.commit()
-
+        flash('Usuario editado exitosamente.')
         return redirect(url_for('usuarios'))
+            
+        
 
     return render_template('editar_usuario.html', usuario=usuario)
 
@@ -150,6 +152,7 @@ def eliminar_usuario(dni):
     db.session.delete(usuario)
     db.session.commit()
 
+    flash('Usuario eliminado exitosamente.')
     return redirect(url_for('usuarios'))
 
 if __name__ == '__main__':
